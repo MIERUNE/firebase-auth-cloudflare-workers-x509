@@ -1,23 +1,23 @@
 name: Test
+
 on:
   push:
     branches: [main]
   pull_request:
     branches: [main]
+
 jobs:
   build:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - uses: pnpm/action-setup@v3
-        with:
-          version: 8
+      - uses: pnpm/action-setup@v4
       - name: Setup Node
         uses: actions/setup-node@v4
         with:
           node-version: 20
           cache: 'pnpm'
-      - run: pnpm install --frozen-lockfile
+      - run: pnpm install
       - run: pnpm test-with-emulator
         env:
           CI: true
@@ -26,25 +26,11 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - uses: pnpm/action-setup@v3
-        with:
-          version: 8
       - name: Setup Node
         uses: actions/setup-node@v4
         with:
           node-version: 20
           cache: 'pnpm'
-      - run: pnpm install --frozen-lockfile
-      - run: pnpm lint-fix
-      - run: pnpm prettier
-      - name: Auto commit fixed code
-        id: auto-commit-action
-        uses: stefanzweifel/git-auto-commit-action@v4
-        with:
-          commit_message: Apply auto lint-fix changes
-          branch: ${{ github.head_ref }}
-      - name: eslint
-        if: steps.auto-commit-action.outputs.changes_detected == 'false'
-        uses: reviewdog/action-eslint@v1
-        with:
-          level: warning
-          reporter: github-pr-review
+      - run: pnpm install
+      - run: pnpm lint
+      - run: pnpm prettier:check

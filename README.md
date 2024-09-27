@@ -1,5 +1,9 @@
 # firebase-auth-cloudflare-workers-x509
 
+![NPM Version](https://img.shields.io/npm/v/firebase-auth-cloudflare-workers-x509)
+
+[![Test](https://github.com/MIERUNE/firebase-auth-cloudflare-workers-x509/actions/workflows/ci.yml/badge.svg)](https://github.com/MIERUNE/firebase-auth-cloudflare-workers-x509/actions/workflows/ci.yml)
+
 A fork of <https://github.com/Code-Hex/firebase-auth-cloudflare-workers>
 
 - Use X.509 certificate endpoints instead of JWK endpoints, as the original firebase-admin also uses X.509. The JWK endpoint presents issues due to the `no-cache` on the public key response for session cookies.
