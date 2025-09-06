@@ -1,5 +1,9 @@
 # firebase-auth-cloudflare-workers-x509
 
+This repository is archived as the original library has added support for X.509.
+
+---
+
 ![NPM Version](https://img.shields.io/npm/v/firebase-auth-cloudflare-workers-x509)
 [![Test](https://github.com/MIERUNE/firebase-auth-cloudflare-workers-x509/actions/workflows/ci.yml/badge.svg)](https://github.com/MIERUNE/firebase-auth-cloudflare-workers-x509/actions/workflows/ci.yml)
 
