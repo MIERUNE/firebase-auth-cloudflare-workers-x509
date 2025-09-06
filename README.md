@@ -1,6 +1,6 @@
 # firebase-auth-cloudflare-workers-x509
 
-This repository is archived as the original library has added support for X.509.
+⚠️ The original library now has support for X.509.
 
 ---
 
